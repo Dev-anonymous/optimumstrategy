@@ -150,7 +150,7 @@
                     <div class="modal-body">
                         <div class="p-3">
                             <div class="d-flex justify-content-between">
-                                <h4>PAIEMENT</h4>
+                                <h4>ACHAT LIVRE</h4>
                                 <i class="fa fa-lock text-success fa-2x"></i>
                             </div>
                             <hr>

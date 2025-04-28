@@ -8,7 +8,7 @@ use App\Models\Taux;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-$xApiKey = "MFE2R0s0cEZMZVh2Rm8zb0tZNjNMdz09";
+$xApiKey = "S2VsdWhpdXY5K3gva1V1eGI0Mi9QQT09";
 
 define('API_BASE', 'https://gopay.gooomart.com/api/v2');
 define('API_HEADEARS',  [
