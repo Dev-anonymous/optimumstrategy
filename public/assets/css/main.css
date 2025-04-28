@@ -25,7 +25,8 @@
     --background-color: #ffffff; /* Background color for the entire website, including individual sections */
     --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
     --heading-color: #3b434a; /* Color for headings, subheadings and title throughout the website */
-    --accent-color: #c09a5b; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --accent-color: #e6be8a; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    /* --accent-color: #E6BE8A;  */
     --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --contrast-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -33,11 +34,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
     --nav-color: #ffffff; /* The default color of the main navmenu links */
-    --nav-hover-color: #c09a5b; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-hover-color: #e6be8a; /* Applied to main navmenu links when they are hovered over or active */
     --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
     --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
     --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-    --nav-dropdown-hover-color: #c09a5b; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+    --nav-dropdown-hover-color: #e6be8a; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -1569,4 +1570,14 @@ section,
     padding-bottom: 0;
     position: relative;
     z-index: 2;
+}
+
+.active > .page-link,
+.page-link.active {
+    color: #000;
+    background-color: var(--accent-color);
+}
+.page-link {
+    color: var(--accent-color);
+    border: var(--bs-pagination-border-width) solid var(--accent-color) !important;
 }
