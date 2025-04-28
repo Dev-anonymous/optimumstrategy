@@ -252,10 +252,10 @@
                 var prixv = $(this).attr('prixv');
                 var prixred = $(this).attr('prixred');
                 var red = Number($(this).attr('red'));
-                if (red) {
+                if (red && prixv != prixred) {
                     var hprix =
                         `PRIX DU LIVRE : <del class="text-danger font-weight-bold">${prixv}</del> <b montant class='ml-2'>${prixred}</b>`;
-                    $('[redtext]').html(`Bénéficiez jusqu’à ${red}% pour votre première commande.`);
+                    $('[redtext]').html(`Bénéficiez jusqu'à ${red}% pour votre première commande.`);
                 } else {
                     var hprix =
                         `PRIX DU LIVRE : <b montant class="text-danger font-weight-bold">${prixv}</b>`;
