@@ -45,19 +45,18 @@ class PAYAPIController extends Controller
         $devise = request()->devise;
         $book = Livre::where('id', request('book_id'))->first();
         $amount = reduction($book);
+        $amount = change($amount, $book->devise, $devise);
 
         if ($devise == 'CDF' and $amount < 500) {
             return response([
                 'success' => false,
                 'message' => "Le montant minimum de paiement est de 500 CDF"
             ]);
-        } else {
-            if ($amount < 1) {
-                return response([
-                    'success' => false,
-                    'message' => 'Le montant minimum de paiement est de 1 USD'
-                ]);
-            }
+        } else if ($devise == 'USD' and  $amount < 1) {
+            return response([
+                'success' => false,
+                'message' => 'Le montant minimum de paiement est de 1 USD'
+            ]);
         }
         $user = auth()->user();
 

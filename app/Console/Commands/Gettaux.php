@@ -30,23 +30,23 @@ class Gettaux extends Command
      */
     public function handle()
     {
-        // try {
-        $response = Http::get('https://control.gooomart.com/api/taux');
-        $rep = $response->object();
-        if ($rep->success) {
-            $cdf_usd = $rep->CDF_USD;
-            $usd_cdf = $rep->USD_CDF;
-            $maj = $rep->maj;
-            $taux = Taux::first();
-            if (!$taux) {
-                $taux = Taux::create(['cdf_usd' => $cdf_usd, 'usd_cdf' => $usd_cdf, 'date' => (new \DateTime($maj))->format('Y-m-d H:i:s')]);
-            } else {
-                $taux->update(['cdf_usd' => $cdf_usd, 'usd_cdf' => $usd_cdf, 'date' => (new \DateTime($maj))->format('Y-m-d H:i:s')]);
+        try {
+            $response = Http::get('https://control.gooomart.com/api/taux');
+            $rep = $response->object();
+            if ($rep->success) {
+                $cdf_usd = $rep->CDF_USD;
+                $usd_cdf = $rep->USD_CDF;
+                $maj = $rep->maj;
+                $taux = Taux::first();
+                if (!$taux) {
+                    $taux = Taux::create(['cdf_usd' => $cdf_usd, 'usd_cdf' => $usd_cdf, 'date' => (new \DateTime($maj))->format('Y-m-d H:i:s')]);
+                } else {
+                    $taux->update(['cdf_usd' => $cdf_usd, 'usd_cdf' => $usd_cdf, 'date' => (new \DateTime($maj))->format('Y-m-d H:i:s')]);
+                }
             }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-        // } catch (\Throwable $th) {
-        //     //throw $th;
-        // }
         return Command::SUCCESS;
     }
 }

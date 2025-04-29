@@ -215,8 +215,10 @@
                                     <div id="rep"></div>
                                 </div>
                                 <button class="btn btn-block w-100 bg-gold" type="submit">
-                                    <span></span>
-                                    PAYER
+                                    <i></i>
+                                    <b>
+                                        PAYER <span montant></span>
+                                    </b>
                                 </button>
 
                                 <button type="button" class="btn btn-light my-2" id="btncancel"
@@ -263,7 +265,7 @@
                 }
                 $('[name=book_id]', form).val(id);
                 $('[name=devise]', form).val(dev);
-                $('span[montant]', form).html(prixv);
+                $('span[montant]', form).html(prixred);
                 $('[hprix]', form).html(hprix);
                 $('#submdl').modal('show');
             });
@@ -274,7 +276,7 @@
                 var book_id = $('[name=book_id]', form).val();
                 $(':input', form).attr('disabled', true);
                 var btn = $(':submit', form);
-                btn.find('span').removeClass().addClass('spinner-border spinner-border-sm');
+                btn.find('i').removeClass().addClass('spinner-border spinner-border-sm');
 
                 $.ajax({
                     data: {
@@ -292,7 +294,7 @@
                         var v = data.val;
                         $('[montant]').html(v);
                         $(':input', form).attr('disabled', false);
-                        btn.find('span').removeClass();
+                        btn.find('i').removeClass();
                     },
                     error: function(data) {
                         setTimeout(() => {
@@ -328,7 +330,7 @@
                                 clearInterval(interv);
                                 var form = $('#f-pay2');
                                 var btn = $(':submit', form).attr('disabled', false);
-                                btn.html('<span></span> PAYER');
+                                btn.html('<i></i><b>PAYER <span montant></span></b>');
                                 rep = $('#rep', form);
                                 rep.html(
                                     `<b>TRANSACTION EFFECTUEE !</b><p>Merci d'avoir effectuer le paiement! veuillez consulter votre boite e-mail pour télécharger le livre.</p>`
@@ -341,7 +343,7 @@
                                 $('#btncancel').hide();
                                 var form = $('#f-pay2');
                                 var btn = $(':submit', form).attr('disabled', false);
-                                btn.html('<span></span> PAYER');
+                                btn.html('<i></i><b>PAYER <span montant></span></b>');
                                 var rep = $('#rep', form);
                                 rep.html(
                                     `<b>TRANSACTION ECHOUEE !</b><p>Vous avez peut-être saisi un mauvais Pin. Merci de réessayer.</p>`
@@ -360,7 +362,7 @@
                 $(this).hide();
                 var form = $('#f-pay2');
                 var btn = $(':submit', form).attr('disabled', false);
-                btn.html('<span></span> PAYER');
+                btn.html('<i></i><b>PAYER <span montant></span></b>');
                 var rep = $('#rep', form);
                 rep.html("Paiement annulé.").removeClass();
                 rep.addClass('alert alert-danger');
@@ -378,7 +380,7 @@
                 var data = form.serialize();
                 data = data.split('telephone=').join('telephone=+243');
 
-                btn.attr('disabled', true).find('span').removeClass().addClass(
+                btn.attr('disabled', true).find('i').removeClass().addClass(
                     'spinner-border spinner-border-sm');
                 $.ajax({
                     url: '{{ route('api.init.pay') }}',
@@ -404,14 +406,14 @@
                             $('#btncancel').show();
                         } else {
                             rep.removeClass().addClass('text-danger').html(res.message);
-                            btn.attr('disabled', false).find('span').removeClass();
+                            btn.attr('disabled', false).find('i').removeClass();
                         }
                     },
                     error: function(res) {
                         var j = res.responseJSON;
                         rep.removeClass().addClass('text-danger').html(j.message ??
                             'Erreur, veuillez reessayer');
-                        btn.attr('disabled', false).find('span').removeClass();
+                        btn.attr('disabled', false).find('i').removeClass();
                     }
                 });
             });
