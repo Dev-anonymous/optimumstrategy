@@ -411,7 +411,10 @@
                     },
                     error: function(res) {
                         var j = res.responseJSON;
-                        rep.removeClass().addClass('text-danger').html(j.message ??
+                        if (j) {
+                            j = j.message;
+                        }
+                        rep.removeClass().addClass('text-danger').html(j ??
                             'Erreur, veuillez reessayer');
                         btn.attr('disabled', false).find('i').removeClass();
                     }
