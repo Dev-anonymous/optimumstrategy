@@ -1,7 +1,7 @@
 <footer id="footer" class="footer position-relative dark-background">
     <div class="container">
-        <h3 class="sitename text-gold" data-aos="fade-left" data-aos-delay="100">{{ config('app.name') }}<br></h3>
-        <p data-aos="fade-right" data-aos-delay="100">Inspiration quotidienne, idées infinies.</p>
+        <h3 class="sitename text-gold" data-aos="fade-down" data-aos-delay="100">{{ config('app.name') }}</h3>
+        <p data-aos="fade-up" data-aos-delay="100">Inspiration quotidienne, idées infinies.</p>
         <div class="social-links d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <a href="https://www.facebook.com/share/1AQo2fdNXZ" target="_blank"><i class="bi bi-facebook"></i></a>
             <a href="#" onclick="event.preventDefault()"><i class="bi bi-twitter-x"></i></a>

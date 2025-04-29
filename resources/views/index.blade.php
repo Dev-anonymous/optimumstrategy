@@ -49,7 +49,7 @@
                     class=" rounded-circle" data-aos="fade-in">
             </div>
             <div class="col-lg-8 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="">
+                <div class="mt-2">
                     <h2 class="text-gold">APROPOS DE L'AUTEUR</h2>
                     <p>{{ @$livre->aproposauteur }}</p>
                 </div>
