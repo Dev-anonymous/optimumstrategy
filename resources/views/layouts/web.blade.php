@@ -97,7 +97,7 @@
         @endauth
     </script>
     @yield('js-code')
-
+    <script src='https://zbot.gooomart.com/zbot/ZDhWTkRkWnZLbGpZc3JxYnVVRHhOUTltpm' async></script>
 </body>
 
 </html>
