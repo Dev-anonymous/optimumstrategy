@@ -21,7 +21,7 @@ class SystemMiddleware
         if (!$taux) {
             $taux = Taux::create(['cdf_usd' => 0.00037, 'usd_cdf' => 2690]);
         }
-        // completeTrans();
+        completeTrans();
         return $next($request);
     }
 }
