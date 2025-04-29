@@ -32,12 +32,16 @@
                                     <tbody>
                                         @foreach ($commandes as $k => $el)
                                             @php
-                                                $dt = '';
+                                                $dt = json_decode($el->data);
                                             @endphp
                                             <tr>
                                                 <td>{{ $k + 1 }}</td>
                                                 <td>{{ $el->user->name }}</td>
-                                                <td>{{ $det }}</td>
+                                                <td>
+                                                    Ref: {{ $el->myref }} <br>
+                                                    Montant: {{ v($dt->montant, $dt->devise) }} <br>
+                                                    Livre : {{ $dt->book->titre }} <br>
+                                                </td>
                                                 <td>{{ $el->date?->format('d-m-Y H:i:s') }}</td>
                                             </tr>
                                         @endforeach
